@@ -126,6 +126,14 @@ describe('functions', function() {
     var c = Math.random();
     var result;
 
+    result = functionsAnswers.curryIt(curryMe)(a)(b)(c);
+    expect(typeof result).to.eql('number');
+    expect(result).to.eql(curryMe(a, b, c));
+
+    result = functionsAnswers.curryIt(curryMe)(a)(b);
+    expect(typeof result).to.eql('function');
+    expect(result.length).to.eql(1);
+
     result = functionsAnswers.curryIt(curryMe);
     expect(typeof result).to.eql('function');
     expect(result.length).to.eql(1);
@@ -134,12 +142,6 @@ describe('functions', function() {
     expect(typeof result).to.eql('function');
     expect(result.length).to.eql(1);
 
-    result = functionsAnswers.curryIt(curryMe)(a)(b);
-    expect(typeof result).to.eql('function');
-    expect(result.length).to.eql(1);
 
-    result = functionsAnswers.curryIt(curryMe)(a)(b)(c);
-    expect(typeof result).to.eql('number');
-    expect(result).to.eql(curryMe(a, b, c));
   });
 });

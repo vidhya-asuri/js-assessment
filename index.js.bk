@@ -1,10 +1,8 @@
 const fs = require('fs');
 const browserSync = require('browser-sync').create();
 
-const port = '4444';
-const host = '45.79.172.80';
-//const port = process.env.PORT || '4444';
-//const host = process.env.HOST || '127.0.0.1';
+const port = process.env.PORT || '4444';
+const host = process.env.HOST || '127.0.0.1';
 
 browserSync.init({
   server: {
